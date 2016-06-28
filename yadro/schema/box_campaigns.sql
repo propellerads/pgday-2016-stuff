@@ -29,8 +29,3 @@ SELECT now(),
 	(select string_agg(md5(j::text),'') from generate_series(1,15) gs(j)),
 	random() * 10000000
 FROM generate_series(1,3000000) AS gs(i);
-
-CREATE INDEX box_campaigns_created_at_idx ON box_campaigns USING btree (created_at);
-CREATE INDEX box_campaigns_on_against_id ON box_campaigns USING btree (against_id);
-CREATE INDEX box_campaigns_on_creator_id ON box_campaigns USING btree (creator_id);
-CREATE INDEX box_campaigns_on_registered_at ON box_campaigns USING btree (registered_at);

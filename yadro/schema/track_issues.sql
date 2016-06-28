@@ -29,8 +29,3 @@ SELECT now(),
 	(select string_agg(md5(j::text),'') from generate_series(1,15) gs(j)),
 	random() * 10000000
 FROM generate_series(1,3000000) AS gs(i);
-
-CREATE INDEX track_issues_recorded_at_idx ON track_issues USING btree (recorded_at);
-CREATE INDEX track_issues_on_reporter_id ON track_issues USING btree (reporter_id);
-CREATE INDEX track_issues_on_caiter_id ON track_issues USING btree (caiter_id);
-CREATE INDEX track_issues_on_first_download_at ON track_issues USING btree (first_download_at);

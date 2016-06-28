@@ -29,8 +29,3 @@ SELECT now(),
 	(select string_agg(md5(j::text),'') from generate_series(1,15) gs(j)),
 	random() * 10000000
 FROM generate_series(1,3000000) AS gs(i);
-
-CREATE INDEX task_events_created_at_idx ON task_events USING btree (created_at);
-CREATE INDEX task_events_on_task_id ON task_events USING btree (task_id);
-CREATE INDEX task_events_on_description_id ON task_events USING btree (description_id);
-CREATE INDEX task_events_on_updated_at ON task_events USING btree (updated_at);

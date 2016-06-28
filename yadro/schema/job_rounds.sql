@@ -29,8 +29,3 @@ SELECT now(),
 	(select string_agg(md5(j::text),'') from generate_series(1,15) gs(j)),
 	random() * 10000000
 FROM generate_series(1,3000000) AS gs(i);
-
-CREATE INDEX job_rounds_created_at_idx ON job_rounds USING btree (created_at);
-CREATE INDEX job_rounds_on_board_id ON job_rounds USING btree (board_id);
-CREATE INDEX job_rounds_on_bucket_id ON job_rounds USING btree (bucket_id);
-CREATE INDEX job_rounds_on_charged_at ON job_rounds USING btree (charged_at);

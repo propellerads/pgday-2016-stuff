@@ -29,8 +29,3 @@ FROM generate_series(1,3000000) AS gs(i);
 
 ALTER TABLE feed_actions OWNER TO postgres;
 ALTER TABLE ONLY feed_actions ADD CONSTRAINT feed_accesses_pkey PRIMARY KEY (id);
-
-CREATE INDEX feed_actions_created_at_idx ON feed_actions USING btree (created_at);
-CREATE INDEX index_feed_actions_on_job_board_id ON feed_actions USING btree (job_board_id);
-CREATE INDEX index_feed_actions_on_request_id ON feed_actions USING btree (request_id);
-CREATE INDEX index_feed_actions_on_requested_at ON feed_actions USING btree (requested_at);

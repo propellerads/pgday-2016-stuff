@@ -79,14 +79,3 @@ SELECT
     now(),
     random() * 10000000
 FROM generate_series(1,6000000) as gs(i);
-
-CREATE INDEX job_stats_master_created_at ON job_stats_master USING btree (created_at);
-CREATE INDEX job_stats_master_employer_id_and_created_at ON job_stats_master USING btree (employer_id, created_at);
-CREATE INDEX job_stats_master_employer_id_and_source ON job_stats_master USING btree (employer_id, source);
-CREATE INDEX job_stats_master_global_action ON job_stats_master USING btree (global_action);
-CREATE INDEX job_stats_master_job_group_id ON job_stats_master USING btree (job_group_id);
-CREATE INDEX job_stats_master_job_reference ON job_stats_master USING btree (job_reference);
-CREATE INDEX job_stats_master_job_seeker_id ON job_stats_master USING btree (job_seeker_id);
-CREATE INDEX job_stats_master_source_created_at_key ON job_stats_master USING btree (source, created_at);
-CREATE INDEX job_stats_master_source_job_reference ON job_stats_master USING btree (source, job_reference) WHERE (source IS NOT NULL);
-CREATE INDEX job_stats_master_user_token_created_at_key ON job_stats_master USING btree (user_token, created_at);

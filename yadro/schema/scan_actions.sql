@@ -29,8 +29,3 @@ SELECT now(),
 	(select string_agg(md5(j::text),'') from generate_series(1,15) gs(j)),
 	random() * 10000000
 FROM generate_series(1,3000000) AS gs(i);
-
-CREATE INDEX scan_actions_scanned_at_idx ON scan_actions USING btree (scanned_at);
-CREATE INDEX scan_actions_on_device_id ON scan_actions USING btree (device_id);
-CREATE INDEX scan_actions_on_property_id ON scan_actions USING btree (property_id);
-CREATE INDEX scan_actions_on_requested_at ON scan_actions USING btree (requested_at);
